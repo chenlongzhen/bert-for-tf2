@@ -1,0 +1,50 @@
+{
+    "model_algorithm": "image_classification",
+    "model_type": "TensorFlow",
+    "runtime": "python3.6",
+    "apis": [{
+            "procotol": "http",
+            "url": "/",
+            "method": "post",
+            "request": {
+                "Content-type": "multipart/form-data",
+                "data": {
+                    "type": "object",
+                    "properties": {
+                        "text": {
+                            "type": "text"
+                        }
+                    }
+                }
+            },
+            "response": {
+                "Content-type": "applicaton/json",
+                "data": {
+                    "type": "object",
+                    "properties": {
+                      "scores": {
+                        "type": "array",
+                        "items": [
+                          {
+                            "type": "array",
+                            "items": [
+                              {
+                                "type": "float"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                }
+            }
+        }
+    ],
+
+    "metrics": {
+      "f1": 0.102058,
+      "recall": 0.9975,
+      "precision": 0.05378,
+      "accuracy": 1
+    }
+}
